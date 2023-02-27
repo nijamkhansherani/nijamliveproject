@@ -3,12 +3,13 @@ const Router = express.Router();
 
 Router.use(express.json())
 
-
-   const {getuser,setUsers,updateuser,deleteuser}=require('../controllers/usercontrollers')
+const {getuser,setUsers,updateuser,deleteuser,searchuser, loginserver}=require('../controllers/usercontrollers')
 Router.get('/',getuser)
 Router.post('/',setUsers)
 Router.put('/:_id',updateuser)
 Router.delete('/:_id',deleteuser)
+Router.get('/_id',searchuser)
+Router.post("/login",loginserver)
 // routes.use(express.json())
 
 // Router.route('/').get(getuser).post(setUsers)

@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 // console.log(process.env);
 // console.log("=============>",process.env.MONGO_URL);
 console.log("heelll");
+console.log("nijamm");
 const ConnectDB= async()=>{
     try{
         const connect = await mongoose.connect(process.env.MONGO_URL)

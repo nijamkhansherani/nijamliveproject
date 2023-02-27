@@ -17,6 +17,10 @@ const projectscema = new mongoose.Schema({
         type :Number,
         required : [true, 'please add an quentity']    
     },
+    images:{
+        type:String,
+        required : [true, 'please add an images']
+    }
 },
 {
   timestamps : true

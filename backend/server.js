@@ -4,14 +4,43 @@ const { product }= require('./routers/projectrouter')
 const app = express();
 const dotenv = require('dotenv').config();
 const port = process.env.PORT || 5000;
+const multer = require('multer')
+const path = require('path')
+app.use('/profile',express.static('upload/images'))
 
-app.use('/api/user',require('./routers/userRoutes'));
 const ConnectDB = require('./config/db');
 ConnectDB()
+app.use(express.urlencoded({ extended: false}));
 
+const errorHandler = require('./Middleware/errorMiddleware')
 
+app.use('/api/user',require('./routers/userRoutes'));
 app.use('/api/project',require('./routers/projectrouter'));
+app.use('/api/userAuth',require('./routers/userAuthRoutes'))
+app.use('/api/todo',require('./routers/todorouters'))
+app.use('/api/subject',require('./routers/studentrouters/subjectrouters'))
+app.use('/api/country',require('./routers/studentrouters/countryrouters'))
+app.use('/api/course',require('./routers/studentrouters/courserouters'))
 
+
+const storage = multer.diskStorage({
+    destination:"./upload/images",
+    filename:(req,file,cb)=>{
+        return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+    }
+})
+
+const upload= multer({
+    storage: storage
+})
+app.post('/upload',upload.single('profile'),(req,res)=>{
+    console.log(req.file);
+    res.json({
+        success:1,
+        profile_url: `http://localhost:8000/profile/${req.file.filename}`
+    })
+    })
+    
 
 app.listen(port,()=>{
     console.log(`port is colled ${port}`);
