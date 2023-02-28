@@ -21,6 +21,8 @@ app.use('/api/todo',require('./routers/todorouters'))
 app.use('/api/subject',require('./routers/studentrouters/subjectrouters'))
 app.use('/api/country',require('./routers/studentrouters/countryrouters'))
 app.use('/api/course',require('./routers/studentrouters/courserouters'))
+app.use('/api/signup',require('./routers/signuprouters'))
+app.use('/api/profile',require('./routers/profilerouters'))
 
 
 const storage = multer.diskStorage({

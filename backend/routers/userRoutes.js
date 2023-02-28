@@ -8,7 +8,7 @@ Router.get('/',getuser)
 Router.post('/',setUsers)
 Router.put('/:_id',updateuser)
 Router.delete('/:_id',deleteuser)
-Router.get('/_id',searchuser)
+Router.get('/:_id',searchuser)
 Router.post("/login",loginserver)
 // routes.use(express.json())
 

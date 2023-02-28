@@ -7,6 +7,7 @@ const bcrypt = require('bcryptjs');
 const asyncHandler = require('express-async-handler');
 const User = require('../../Model/studentModel/courseModel');
 const protect = require("../../Middleware/Authmiddleware");
+const { findById } = require("../../Model/userModel");
 
 const setcourse = asyncHandler(async(req,res)=>{
     const { course } = req.body
@@ -23,11 +24,16 @@ const getcourse = asyncHandler (async(req,res)=>{
 
 })
 
+const searchcourse = asyncHandler(async(req,res)=>{
+    let data = await User.findById(req.params._id);
+    res.status(200).json(data);
+ })
+
 
 
 module.exports = {
     setcourse,
     getcourse,
-    
+    searchcourse
     
 }
