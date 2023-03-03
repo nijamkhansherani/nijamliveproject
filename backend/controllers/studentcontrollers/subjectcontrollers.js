@@ -23,8 +23,39 @@ const getsubject = asyncHandler (async(req,res)=>{
 
 })
 
+const updatesub=asyncHandler( async (req,res)=>{
+    let findid = await User.findById(req.params._id);
+    if(!findid){
+        res.status(400);
+        res.send("user not found");
+    }
+        const updateusers = await User.findByIdAndUpdate(req.params._id,req.body,{
+            new : true
+        })
+    
+    console.log("=====>",updateusers);
+    res.send(updateusers)
+})
+
+const deletesub= asyncHandler( async(req,res)=>{
+   
+    let findid = await User.findById(req.params._id);
+    if(!findid){
+        res.status(400);
+        res.send("user not found");
+    }
+        await findid.remove();
+
+   
+    res.status(200).json({message : `delete data ${req.params.id}`});
+ })
+
+
+
 
 module.exports = {
     setsubject,
-    getsubject
+    getsubject,
+    updatesub,
+    deletesub
 }

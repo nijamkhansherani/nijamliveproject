@@ -5,6 +5,7 @@ const asyncHandler = require('express-async-handler');
 
 const getsignup = async(req,res)=>{
     const data =  await signup.findOne({})
+    res.send(data)
 }
 
 const postsignup = async(req,res)=>{

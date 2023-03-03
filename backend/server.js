@@ -23,7 +23,11 @@ app.use('/api/country',require('./routers/studentrouters/countryrouters'))
 app.use('/api/course',require('./routers/studentrouters/courserouters'))
 app.use('/api/signup',require('./routers/signuprouters'))
 app.use('/api/profile',require('./routers/profilerouters'))
-
+app.use('/api/employ',require('./routers/employrouters/employrouters'))
+app.use('/api/product',require('./routers/productrouters/productrouters'))
+app.use('/api/all',require('./routers/desbordrouters'))
+app.use('/api/student',require('./routers/studentrouters/studentrouters'))
+app.use('/api/users',require('./routers/usersrouters/usersrouters'))
 
 const storage = multer.diskStorage({
     destination:"./upload/images",
