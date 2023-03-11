@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const studentSchema = new mongoose.Schema({
     name:{type :String},
-    number:{type :String},
+    number:{type :Number},
     email:{type :String},
     profile:{type:String},
     student:{type:String},

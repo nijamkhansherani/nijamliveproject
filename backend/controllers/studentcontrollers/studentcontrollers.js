@@ -12,7 +12,7 @@ const addstudent = async (req, res) => {
   JSON.stringify(countrys)
   JSON.stringify(courses)
   JSON.stringify(subjecting)
-  console.log(countrys.countryName);
+  console.log(country);
   console.log(courses);
   console.log(countrys)
   console.log(subjecting);

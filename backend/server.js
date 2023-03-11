@@ -28,6 +28,8 @@ app.use('/api/product',require('./routers/productrouters/productrouters'))
 app.use('/api/all',require('./routers/desbordrouters'))
 app.use('/api/student',require('./routers/studentrouters/studentrouters'))
 app.use('/api/users',require('./routers/usersrouters/usersrouters'))
+app.use('/api/addtocard',require('./routers/addtocardrouters'))
+app.use('/api/wishlish',require('./routers/wishlishrouters'))
 
 const storage = multer.diskStorage({
     destination:"./upload/images",

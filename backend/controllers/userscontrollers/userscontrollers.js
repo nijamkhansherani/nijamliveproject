@@ -2,7 +2,7 @@ const users = require("../../Model/usersModel/usersModel")
 
 const getuser = async (req, res) => {
     try {
-        let data = users.find({})
+        let data =await users.find({})
         if (!data) {
             res.status(404).json({ error: "user not found" })
         }
@@ -34,7 +34,7 @@ const postuser = async (req, res) => {
  
 
     } catch (error) {
-        res.status.json(error)
+        res.status(404).json(error)
     }
 
 }

@@ -6,7 +6,7 @@ router.use(express.json())
 const { getuser, postuser, updateuser, deleteusre}=require('../../controllers/userscontrollers/userscontrollers')
 router.get('/',getuser)
 router.post('/',postuser)
-router.update('/:_id',updateuser)
+router.put('/:_id',updateuser)
 router.delete('/:_id',deleteusre)
 
 
