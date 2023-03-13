@@ -9,7 +9,7 @@ router.use(express.json())
 
 router.get('/get',protect,getaddtocard)    
 router.post('/add',protect,postaddtocard)
-router.delete('/:_id',deleteaddtocard)
+router.delete('/:_id',protect,deleteaddtocard)
 
 
 module.exports = router;

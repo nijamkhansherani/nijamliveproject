@@ -14,7 +14,7 @@ if(!data.length){
     res.status(200).json({ status: false, massage: "cart is empty"})
 }
 console.log("====>", data);
-res.status(200).json(data)
+res.status(200).json({ status: true, massage: data})
 
 }
 

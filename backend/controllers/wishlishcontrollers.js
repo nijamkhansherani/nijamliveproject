@@ -37,5 +37,5 @@ const postwishlish = async (req, res) => {
 
 
 module.exports = {
-    getwishlish, postwishlish
+    getwishlish, postwishlish,
 }
