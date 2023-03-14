@@ -1,6 +1,5 @@
 const express=require('express');
 const { route } = require('./routers/userRoutes');
-const { product }= require('./routers/projectrouter')
 const app = express();
 const dotenv = require('dotenv').config();
 const port = process.env.PORT || 5000;
@@ -15,7 +14,6 @@ app.use(express.urlencoded({ extended: false}));
 const errorHandler = require('./Middleware/errorMiddleware')
 
 app.use('/api/user',require('./routers/userRoutes'));
-app.use('/api/project',require('./routers/projectrouter'));
 app.use('/api/userAuth',require('./routers/userAuthRoutes'))
 app.use('/api/todo',require('./routers/todorouters'))
 app.use('/api/subject',require('./routers/studentrouters/subjectrouters'))
@@ -28,8 +26,10 @@ app.use('/api/product',require('./routers/productrouters/productrouters'))
 app.use('/api/all',require('./routers/desbordrouters'))
 app.use('/api/student',require('./routers/studentrouters/studentrouters'))
 app.use('/api/users',require('./routers/usersrouters/usersrouters'))
+app.use('/api/products',require('./routers/productsrouters'))
 app.use('/api/addtocard',require('./routers/addtocardrouters'))
 app.use('/api/wishlish',require('./routers/wishlishrouters'))
+app.use('/api/image',require('./routers/imagerouter/imagerouters'));
 
 const storage = multer.diskStorage({
     destination:"./upload/images",
